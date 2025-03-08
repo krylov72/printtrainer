@@ -1,0 +1,9 @@
+/* Tailwind imports */
+@use 'tailwindcss/base'; /* contains @tailwind base;       */
+@use 'tailwindcss/components'; /* contains @tailwind components; */
+@use 'tailwindcss/utilities'; /* contains @tailwind utilities;  */
+
+html,
+body {
+    @apply font-default;
+}
