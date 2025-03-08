@@ -4,9 +4,10 @@ import '../styles/globals.scss'
 import { Header } from '@/components/Header/Header'
 import { ParticlesBackground } from '@/components/ParticlesBackground/ParticlesBackground'
 import { TrainerProvider } from '@/context/TrainerContext'
+import MainContainer from '@/components/MainContainer/MainContainer'
 
 const quantico = Quantico({
-    variable: '--font-geist-sans',
+    variable: '--font-quantico',
     subsets: ['latin'],
     weight: '400',
 })
@@ -23,13 +24,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${quantico.variable}  antialiased container `}>
+            <body className={`${quantico.variable} antialiased container `}>
                 <ParticlesBackground />
                 <TrainerProvider>
-                    <main className="flex flex-col h-screen justify-center items-center">
+                    <MainContainer>
                         <Header />
                         {children}
-                    </main>
+                    </MainContainer>
                 </TrainerProvider>
             </body>
         </html>

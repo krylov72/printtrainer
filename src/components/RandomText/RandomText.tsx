@@ -110,11 +110,11 @@ const RandomText = ({ text }: Props) => {
                             exit={{
                                 opacity: 0,
                                 scale: 0.8,
-                                transition: { duration: 0.3 },
+                                transition: { duration: 1 },
                             }}
                             tabIndex={0}
                             ref={wordRef}
-                            className="text-[#d0c5ad] text-[30px] outline-none"
+                            className="text-[#d0c5ad] text-[40px] outline-none"
                         >
                             {currentText?.map((word) => (
                                 <span
@@ -129,7 +129,7 @@ const RandomText = ({ text }: Props) => {
                 </AnimatePresence>
             </div>
             <div className="text-[#d0c5ad] text-[30px] flex flex-col  items-center">
-                Здесь отображаются нажатые клавиши:
+                Нажатая клавиша:
                 {key && (
                     <motion.div
                         key={key}

@@ -4,7 +4,7 @@ import { useTrainerContext } from '@/context/TrainerContext'
 import { easeInOut, motion } from 'framer-motion'
 
 const Header = () => {
-    const { setIsStart } = useTrainerContext()
+    const { setIsStart, isStart } = useTrainerContext()
     const title = 'PRINT TRAINER'
 
     const startGameHandler = () => {
@@ -12,14 +12,18 @@ const Header = () => {
     }
     return (
         <motion.header
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="relative z-3 w-full py-5 flex bg-[#d0c5ad] shadow-almostBlack shadow-xl gap-20 rounded-[30px] justify-center  items-center container"
+            initial={{ opacity: 0, width: 0 }}
+            animate={{
+                opacity: 1,
+                width: '100%',
+                top: isStart ? 0 : '',
+            }}
+            transition={{ duration: 0.5 }}
+            className={` ${isStart ? 'fixed rounded-b-[30px]' : 'relative rounded-[30px]'} z-3 w-full py-5 flex bg-[#d0c5ad] shadow-almostBlack shadow-xl gap-20  justify-center  items-center container`}
         >
             <ul>
                 <motion.li
-                    className="font-kanit text-[30px] cursor-pointer text-[#82460b] uppercase relative"
+                    className="text-[30px] cursor-pointer text-[#82460b] uppercase relative"
                     onClick={startGameHandler}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -43,13 +47,13 @@ const Header = () => {
                         }}
                         className="inline-block"
                     >
-                        {char === ' ' ? '\u00A0' : char}{' '}
+                        {char === ' ' ? '\u00A0' : char}
                     </motion.span>
                 ))}
             </h1>
             <ul>
                 <motion.li
-                    className="font-kanit text-[30px] cursor-pointer text-[#82460b] uppercase relative"
+                    className=" text-[30px] cursor-pointer text-[#82460b] uppercase relative"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
